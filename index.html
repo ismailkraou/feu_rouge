@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feu Rouge</title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background: #333;
+        }
+        
+        #text {
+            position: fixed;
+            width: 25px;
+            height: auto;
+            float: left;
+            left: 10px;
+            top: 0;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            clear: both;
+        }
+        
+        .centent {
+            position: relative;
+            width: 100px;
+            height: auto;
+            top: 25%;
+            bottom: 0;
+            margin: auto;
+            margin-top: 20%;
+            background: transparent;
+        }
+        
+        .feu {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 5px;
+            background: #f3f3f3;
+            border-radius: 20%;
+        }
+        
+        .feu #yellow,
+        .feu #green,
+        .feu #red {
+            position: relative;
+            display: list-item;
+            list-style: none;
+            width: 70px;
+            height: 70px;
+            margin: auto;
+            border-radius: 50%;
+            border: 1px solid #f2f2f2;
+            background: darkgray;
+        }
+        
+        .yellow {
+            background: yellow !important;
+            box-shadow: 1px 1px 10px yellow;
+        }
+        
+        .green {
+            background: green !important;
+            box-shadow: 1px 1px 10px green;
+        }
+        
+        .red {
+            background: red !important;
+            box-shadow: 1px 1px 10px red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="text"></div>
+    <div class="centent">
+        <div id="feu" class="feu">
+
+            <div id="red" class=""></div>
+            <div id="yellow" class=""></div>
+            <div id="green" class=""></div>
+
+        </div>
+    </div>
+
+    <script>
+        var t = document.getElementById('text');
+        var j = document.getElementById('yellow');
+        var v = document.getElementById('green');
+        var r = document.getElementById('red');
+        var cpt = 0;
+        t.innerHTML = cpt;
+
+        var id = setInterval(frame, 1000);
+
+        function frame() {
+            if (cpt == 0) {
+                v.className = "green";
+                j.className = '';
+                r.className = '';
+                cpt += 1;
+                t.innerHTML = cpt;
+
+            } else if (cpt == 10) {
+                v.className = '';
+                j.className = 'yellow';
+                r.className = '';
+                cpt += 1;
+                t.innerHTML = cpt;
+
+            } else if (cpt == 20) {
+                v.className = '';
+                j.className = '';
+                r.className = 'red';
+                cpt += 1;
+                t.innerHTML = cpt;
+
+            } else if (cpt == 30) {
+                cpt = 0;
+                t.innerHTML = cpt;
+
+            } else {
+                cpt += 1;
+                t.innerHTML = cpt;
+
+            }
+        }
+    </script>
+</body>
+
+</html>
